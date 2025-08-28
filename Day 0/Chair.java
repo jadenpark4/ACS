@@ -55,7 +55,7 @@ public class Chair {
     }
     public void addLeg() {
         chairLegs = 5;
-        System.out.println("The chair now has " + chairLegs + "legs");
+        System.out.println("The chair now has " + chairLegs + " legs");
     }
 
     // bend
