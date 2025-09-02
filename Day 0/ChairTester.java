@@ -6,5 +6,8 @@ public class ChairTester {
         libChair.bend();
         libChair.distort();
         libChair.addLeg();
+        int numberLegsRemoved = 3;
+        libChair.removeLeg(numberLegsRemoved);
+        libChair.getBetterPosture();
     }
 }

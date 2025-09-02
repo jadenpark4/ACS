@@ -28,7 +28,7 @@ public class Chair {
         chairLegs = 4;
     }
 
-    public void bend() { // (public) (what comes out) (name of function(inputs))
+    public void bend() { // (public) (what comes out) (name of function(inputs)) it's called a method signature
         isBending = true;
         System.out.println("The chair is now bending.");
     }
@@ -55,7 +55,30 @@ public class Chair {
     }
     public void addLeg() {
         chairLegs = 5;
-        System.out.println("The chair now has " + chairLegs + " legs");
+        System.out.println("The chair now has " + chairLegs + " legs.");
+    }
+    public void removeLeg(int numberLegsRemoved) {
+        if (chairLegs < numberLegsRemoved)
+        {
+            System.out.println("There aren't enough chairs to do this action!");
+            chairLegs = 0;
+        } else {
+            chairLegs = chairLegs - numberLegsRemoved;
+            System.out.println("The chair now has " + chairLegs + " legs, after you removed " + numberLegsRemoved + " legs.");
+        }
+        if (chairLegs == 0)
+        {
+            System.out.println("There are no legs left.");
+        }
+    }
+    public void getBetterPosture() {
+        if (!isBending)
+        {
+            System.out.println("The seat is upright.");
+        }
+        else {
+            System.out.println("Sit up and stop being lazy.");
+        }
     }
 
     // bend
