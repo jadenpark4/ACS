@@ -17,6 +17,77 @@ public class Chair {
 
     // }
 
+    // Get and Set Methods (double click + source action + generate setters and getters)
+
+    public String getColor() {
+        return this.color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getTexture() {
+        return this.texture;
+    }
+
+    public void setTexture(String texture) {
+        this.texture = texture;
+    }
+
+    public String getFeel() {
+        return this.feel;
+    }
+
+    public void setFeel(String feel) {
+        this.feel = feel;
+    }
+
+    public int getTotalLen() {
+        return this.totalLen;
+    }
+
+    public void setTotalLen(int totalLen) {
+        this.totalLen = totalLen;
+    }
+
+    public double getHeight() {
+        return this.height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public Boolean getIsBending() {
+        return this.isBending;
+    }
+
+    public void setIsBending(Boolean isBending) {
+        this.isBending = isBending;
+    }
+
+    public char getChairShape() {
+        return this.chairShape;
+    }
+
+    public void setChairShape(char chairShape) {
+        this.chairShape = chairShape;
+    }
+
+    public int getChairLegs() {
+        return this.chairLegs;
+    }
+
+    public void setChairLegs(int chairLegs) {
+        this.chairLegs = chairLegs;
+    }
+
+    /*public double setIntelligence(int iq) {
+        intelligence = Math.
+    }
+    */
+    
     public Chair() {
         color = "blue";
         texture = "wavy";

@@ -1,13 +1,14 @@
 public class Rectangle { // A class should always have capitilization on first word
     private int length;
     private int width;
+    private int area;
 
     // constructors
     // general default constructor
     public Rectangle() {
         // Initialize the private instance variables
         length = 5;
-        width = 8;
+        width = 10;
     }
 
     public Rectangle(int squareSideLength) {
@@ -19,6 +20,17 @@ public class Rectangle { // A class should always have capitilization on first w
     public Rectangle(int desiredLength, int desiredWidth) {
         length = desiredLength;
         width = desiredWidth;
+    }
+
+    // is equal method
+    //use == if lowercase data type, uppercase(nonprimitive) is .equals
+    public boolean equals(Rectangle otherRect) {
+        if (this.length == otherRect.length 
+            && this.width == otherRect.width
+            ) {
+            return true;
+        }
+        return false;
     }
 
     // getters (ask the question about the class)
@@ -35,25 +47,34 @@ public class Rectangle { // A class should always have capitilization on first w
     public void setLength(int newLength) {
         length = newLength;
     }
+
     public void setWidth(int newWidth) {
         width = newWidth;
     }
 
     // methods
-    public int calculateArea() {
+    public int getArea() {
         int area = length * width;
         return area;
     }
 
-    public int calculatePerimeter() {
+    public int getPerimeter() {
         int perimeter = (2 * length) + (2 * width);
         return perimeter;
     }
 
-    public double calculateDiagonal() {
+    public double getDiagonal() {
         int lengthSquared = length * length;
         int widthSquared = width * width;
         double diagonal = Math.sqrt(lengthSquared + widthSquared);
         return diagonal;
+    }
+
+    public String toString() {
+        area = length * width;
+        return "This rectangle has a length of " + length
+            + " and a width of " + width
+            + ". Its area is " + area
+            + ".";
     }
 }
