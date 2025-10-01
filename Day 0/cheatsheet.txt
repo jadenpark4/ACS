@@ -1,0 +1,64 @@
+U1 Notes:
+Data type order (smallest -> largest memory)
+Byte < short = char < int = float < long = double < String
+Primitive: lower case
+Class: upper case
+
+Camel case: thisIsAnExample
+
+Variables: named storage in memory that holds value
+Casting: convert to another data type (you can’t cast a value into String or boolean)
+Class: blueprint for creating objects
+Defines variables (fields)
+Defines methods (functions)
+
+Methods/Functions: inside a class and performs a task
+Called in an object
+
+New Object Creation: creating an instance of a class
+Instance: a real object created from that class
+Example: Car myCar = new Car();
+
+Access modifier = private or public? Do you give consent to the tester?
+
+Getters vs. setters
+Getters (accessor methods): ask the question about the class
+Making it public gives consent to the tester to see class's variables
+Retrieval
+Setters (modifier methods): allows us to go in and changing around attributes in the class
+Update
+
+Instance vs. constant variables:
+Instance (no =) is not defined to a specific value, while constant is (has =)
+
+Constructor methods:
+No arguments: Example()
+Parameterized constructor: Example(int a, int b)
+
+Equivalence:
+A = b: assignment operator
+A == b: comparison of references (used in if statements for int, double, boolean)
+a.equals(b): comparison for contents/logical equality (Strings and other non-primitives)
+!: Flips boolean (NOT operator)
+|| = or, && = and
+Tricky questions:
+Return (double) total: if int total = 5, then it returns 5.0
+Let’s make p as double and x,y,z as ints
+P = x/y: results in a double
+Z = (double) x / y: only makes x a double, but error because z is an int
+(double) (x/y): makes result of x/y a double
+If you declare a datatype in a function, it only applies inside that function
+
+Case 1:
+int x = 5;
+int y = 2;
+
+double p = (double) x / y;   // (double) 5 / 2 = 5.0 / 2 = 2.5
+System.out.println(p); // 2.5
+
+Case 2:
+int x = 5;
+int y = 2;
+
+double p = x / y;    // x / y = 2 (int division), then widened → 2.0
+System.out.println(p); // 2.0
