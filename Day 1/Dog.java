@@ -9,9 +9,12 @@ public class Dog {
 
     public Dog(String name, String ownerName, int age, int dogId) {
         this.name = name;
-        this.ownerName = name;
+        this.ownerName = ownerName;
         this.age = age;
         this.dogId = dogId;
+        this.dogTag = generateDogTag();
+        this.dogChar = Dog.generateDogChar(this.dogId);
+        this.stillInFacility = true;
     }
 
     public String getName() {
@@ -92,11 +95,25 @@ public class Dog {
         return dogTag;
     }
 
-    public char generateDogChar() {
+    public static char generateDogChar(int dogId) {
         int dig1 = dogId / 100;
         int dig2 = (dogId % 100) / 10;
         int dig3 = dogId % 10;
-        dogChar = (char) ('F' + ((dig1 + dig2 + dig3) % 10));
+        char dogChar = (char) ('F' + ((dig1 + dig2 + dig3) % 10));
         return dogChar;
+    }
+
+    public static String pickup(Dog dog, String personName) {
+        if (dog.ownerName.equals(personName)) {
+            dog.stillInFacility = false;
+            return dog.name + " has been picked up by their owner " + personName;
+        } else {
+            return dog.name + " cannot be picked up by " + personName + ", because the names don't match!";
+        }
+    }
+
+    public static void checkIn(Dog dog, String personName) {
+        dog.stillInFacility = true;
+        dog.ownerName = personName;
     }
 }
