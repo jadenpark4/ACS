@@ -17,8 +17,13 @@ public class PawesomeUtils {
     }
 
     public static void checkIn(Dog dog, String personName) {
-        dog.setStillInFacility(true);
-        dog.setOwnerName(personName);
+        if (validateDogTag(dog)) {
+            dog.setStillInFacility(true);
+            dog.setOwnerName(personName);
+        } else {
+            dog.setStillInFacility(false);
+        }
+        
     }
 
     public static String generateDogTag(int id, char character) {
@@ -44,6 +49,31 @@ public class PawesomeUtils {
             return true;
         } else {
             return false;
+        }
+    }
+
+    public static int convertAgeToHumanAge(Dog dog) {
+        int age = dog.getAge();
+        if (age == 1) {
+            int humanAge = 15;
+            return humanAge;
+        } else if (age == 2) {
+            int humanAge = 24;
+            return humanAge;
+        } else {
+            int humanAge = (age * (age - 2)) + 24;
+            return humanAge;
+        }
+    }
+
+    public static int convertAgeToDogYears(int humanYears) {
+        if (humanYears <= 15) {
+            return 1;
+        } else if (humanYears <= 24 && humanYears > 15) {
+            return 2;
+        } else {
+            int dogAge = ((humanYears - 24) / 5) + 2;
+            return dogAge;
         }
     }
 }
