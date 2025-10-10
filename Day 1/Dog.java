@@ -11,9 +11,9 @@ public class Dog {
         this.name = name;
         this.ownerName = ownerName;
         this.age = age;
-        this.dogId = dogId;
-        this.dogTag = generateDogTag();
-        this.dogChar = Dog.generateDogChar(this.dogId);
+        this.dogId = PawesomeUtils.validateDogId(dogId);
+        this.dogChar = PawesomeUtils.generateDogChar(this.dogId);
+        this.dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
         this.stillInFacility = true;
     }
 
@@ -46,7 +46,12 @@ public class Dog {
     }
 
     public void setDogId(int dogId) {
-        this.dogId = dogId;
+        this.dogId = PawesomeUtils.validateDogId(dogId);
+        char newChar = PawesomeUtils.generateDogChar(this.dogId);
+        setDogChar(newChar);
+
+        String newTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
+        setDogTag(newTag);
     }
 
     public char getDogChar() {
@@ -55,6 +60,7 @@ public class Dog {
 
     public void setDogChar(char dogChar) {
         this.dogChar = dogChar;
+        this.dogTag = PawesomeUtils.generateDogTag(dogId, dogChar);
     }
 
     public String getDogTag() {
@@ -63,6 +69,10 @@ public class Dog {
 
     public void setDogTag(String dogTag) {
         this.dogTag = dogTag;
+    }
+
+    public boolean getStillInFacility() {
+        return stillInFacility;
     }
 
     public boolean isStillInFacility() {
@@ -88,32 +98,5 @@ public class Dog {
         } else {
             return false;
         }
-    }
-
-    public String generateDogTag() {
-        dogTag = "" + dogId + dogChar;
-        return dogTag;
-    }
-
-    public static char generateDogChar(int dogId) {
-        int dig1 = dogId / 100;
-        int dig2 = (dogId % 100) / 10;
-        int dig3 = dogId % 10;
-        char dogChar = (char) ('F' + ((dig1 + dig2 + dig3) % 10));
-        return dogChar;
-    }
-
-    public static String pickup(Dog dog, String personName) {
-        if (dog.ownerName.equals(personName)) {
-            dog.stillInFacility = false;
-            return dog.name + " has been picked up by their owner " + personName;
-        } else {
-            return dog.name + " cannot be picked up by " + personName + ", because the names don't match!";
-        }
-    }
-
-    public static void checkIn(Dog dog, String personName) {
-        dog.stillInFacility = true;
-        dog.ownerName = personName;
     }
 }
