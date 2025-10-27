@@ -11,6 +11,7 @@ public class Cat {
         this.ownerName = ownerName;
         this.moodLevel = moodLevel;
         this.catId = catId;
+        this.isHungry = true;
     }
 
     public Cat() {
@@ -42,7 +43,7 @@ public class Cat {
         if (moodLevel >= 0 && moodLevel <= 10) {
             this.moodLevel = moodLevel;
         }
-        if (moodLevel > 10) {
+        else if (moodLevel > 10) {
             this.moodLevel = 10;
         }
         else {
