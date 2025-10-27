@@ -14,12 +14,10 @@ public class PurrfectUtils {
     public static char generateCatChar(String catId) {
         int sum = 0;
         for (int i = 0; i < catId.length(); i++) {
-            char c = catId.charAt(i);
-            int digit = (int) c;
+            int digit = Character.getNumericValue(catId.charAt(i));
             sum += digit;
         }
-        char result = (char) ('A' + (sum % 26));
-        return result;
+        return (char) ('A' + (sum % 26));
     }
 
     public static int generateRandomNumber(int low, int high) {
@@ -43,11 +41,12 @@ public class PurrfectUtils {
     }
 
     public static int validateMoodLevel(int moodLevel) {
-        if (moodLevel >= 0 && moodLevel <= 10) {
-            return moodLevel;
+        if (moodLevel < 0) {
+            return 0;
+        } else if (moodLevel > 10) {
+            return 10;
         } else {
-            int randomMoodLevel = (int) (Math.random() * 10) + 1;
-            return randomMoodLevel;
+            return moodLevel;
         }
     }
 
