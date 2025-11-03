@@ -11,10 +11,11 @@ public class PurrfectUtils {
         }
     }
 
-    public static char generateCatChar(String catId) {
+    public static char generateCatChar(String catId) { // This method adds the individual digits of catId, calculates the sum modulo 26, and adds 'A' to the result. This process generates an uppercase letter between A and Z.
         int sum = 0;
         for (int i = 0; i < catId.length(); i++) {
-            int digit = Character.getNumericValue(catId.charAt(i));
+            int digit = Character.getNumericValue(catId.charAt(i)); // Or int digit = Integer.parseInt(c + "")
+            // int digit = Integer.parseInt(catId.charAt(i) + "");
             sum += digit;
         }
         return (char) ('A' + (sum % 26));

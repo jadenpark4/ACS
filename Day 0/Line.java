@@ -2,11 +2,35 @@ public class Line {
     private int a;
     private int b;
     private int c;
+    private Point p1;
+    private Point p2;
 
     public Line(int a, int b, int c) {
         this.a = a;
         this.b = b;
         this.c = c;
+    }
+
+    public Line(Point p1, Point p2) {
+        this.p1 = p1;
+        this.p2 = p2;
+        // instance variables a, b, and c
+        // a = - (y2 - y1)
+        this.a = -(p2.getY() - p1.getY()); 
+
+        // b = x2 - x1
+        this.b = p2.getX() - p1.getX(); 
+
+        // c = - (a * x1 + b * y1)
+        this.c = -(this.a * p1.getX() + p1.getY() * this.b); 
+    }
+
+    public Point getP1() {
+        return p1;
+    }
+
+    public Point getP2() {
+        return p2;
     }
 
     public int getA() {
@@ -19,6 +43,14 @@ public class Line {
 
     public int getC() {
         return c;
+    }
+
+    public void setP1(Point p1) {
+        this.p1 = p1;
+    }
+    
+    public void setP2(Point p2) {
+        this.p2 = p2;
     }
 
     public void setA(int a) {
@@ -39,15 +71,37 @@ public class Line {
         return slope;
     }
 
-    public boolean isCoordinateOnLine(int x, int y) {
-        int prod1 = a * x;
-        int prod2 = b * y;
+    public boolean isCoordinateOnLine(Point p) {
+        int prod1 = a * p.getX();
+        int prod2 = b * p.getY();
         int sum = prod1 + prod2 + c;
         if (sum == 0) {
             return true;
         } else {
             return false;
         }
+    }
+
+    public boolean isOnLine(Point p) {
+        int prod1 = a * p.getX();
+        int prod2 = b * p.getY();
+        int sum = prod1 + prod2 + c;
+        if (sum == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public double calculateSlopeFromPoints() {
+        double slope = (double) (p2.getY() - p1.getY()) / (p2.getX() - p1.getX());
+        return slope;
+    }
+
+    public String generatePointSlopeFormula() {
+        return "(" + "y - " + p1.getY() + ")" + " = "
+            + ((double) (p2.getY() - p1.getY()) / (p2.getX() - p1.getX()))
+            + "(" + "x - " + p1.getX() + ")";
     }
 
     public String toString() {
