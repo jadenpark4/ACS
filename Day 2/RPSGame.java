@@ -17,11 +17,11 @@ public class RPSGame {
 
     public boolean didPlayerWin() {
         if ((player.getChoice().equals("rock")
-        && opponent.getChoice().equals("scissors"))
-        || (player.getChoice().equals("paper")
-        && opponent.getChoice().equals("rock")) 
-        || (player.getChoice().equals("scissors")
-        && opponent.getChoice().equals("paper"))) {
+            && opponent.getChoice().equals("scissors"))
+            || (player.getChoice().equals("paper")
+            && opponent.getChoice().equals("rock")) 
+            || (player.getChoice().equals("scissors")
+            && opponent.getChoice().equals("paper"))) {
             return true;
         } else {
             return false;
