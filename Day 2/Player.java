@@ -11,8 +11,14 @@ public class Player {
     public String getChoice() {
         return choice;
     }
+    
     public void setChoice(String choice) {
-        this.choice = choice;
+        String c = choice.toLowerCase().trim();
+        if (!RPSGame.validateChoice(c)) {
+            this.choice = RPSGame.generateRandomChoice();
+        } else {
+            this.choice = choice;
+        }
     }
 
     public String toString() {

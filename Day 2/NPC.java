@@ -2,7 +2,7 @@ public class NPC {
     private String choice;
 
     public NPC() {
-        // return choice by generateRandomChoice()
+        choice = RPSGame.generateRandomChoice();
     }
 
     public String getChoice() {
@@ -10,7 +10,12 @@ public class NPC {
     }
 
     public void setChoice(String choice) {
-        this.choice = choice; // validate
+        String c = choice.toLowerCase().trim();
+        if (!RPSGame.validateChoice(c)) {
+            this.choice = RPSGame.generateRandomChoice();
+        } else {
+            this.choice = choice;
+        }
     }
 
     public String toString() {

@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class RPSGame {
     private Player player;
     private NPC opponent;
@@ -8,11 +10,37 @@ public class RPSGame {
     }
 
     public void start() {
+        // Collect name and set up scanner + attempts
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter your name: ");
+        String name = scan.nextLine().trim();
+        int attempts = 0;
+        String choice;
 
+        // First prompt
+        System.out.println("Choose rock, paper, or scissors: ");
+        choice = scan.nextLine().trim().toLowerCase();
+
+        // Give more attempts
+        while (!validateChoice(choice) && attempts < 2) {
+            attempts++;
+            System.out.println("Invalid choice. Try again (" + (3 - attempts) + " attempt(s) left).");
+            System.out.println("Choose rock, paper, or scissors: ");
+        }
+
+        // After 3 failed attempts
+        if (!validateChoice(choice)) {
+            choice = generateRandomChoice();
+            System.out.println("Invalid choice entered three times. Assigning random choice: " + choice);
+        }
+
+        setPlayerValues(name, choice);
+        scan.close();
     }
 
     public void setPlayerValues(String name, String choice) {
-
+        player.setName(name);
+        player.setChoice(choice);
     }
 
     public boolean didPlayerWin() {
@@ -29,13 +57,17 @@ public class RPSGame {
     }
 
     public String toString() {
-        return "== GAME RESULTS ==" + "\n" + player.getName() +
-            " chose " + player.getChoice() + ".\n" + "Opponent chose " +
-            opponent.getChoice() + ".\n" + 
+        if (player.getChoice().equals(opponent.getChoice())) {
+            return "It's a tie!";
+        }
+        return didPlayerWin() ? player.getName() + " won! Congratulations!"
+            : "Opponent won! Better luck next time!";
     }
 
     public String displayResults() {
-        return "";
+        return "== GAME RESULTS ==" + "\n" + player.getName() +
+            " chose " + player.getChoice() + ".\n" + "Opponent chose " +
+            opponent.getChoice() + ".\n" + toString();
     }
 
     public static boolean validateChoice(String choice) {
