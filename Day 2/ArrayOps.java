@@ -65,7 +65,7 @@ public class ArrayOps {
      * @param array
      *              The String array to find the longest String from.
      * @return The longest String in the array.
-     */ 
+     */
     public static String findLongestString(String[] array) { // FIX THIS CODE!!
         if (array != null && array.length > 0) {
             String longest = array[0];
