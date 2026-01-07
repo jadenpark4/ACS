@@ -104,5 +104,43 @@ public class Unit3ExercisesTester {
             System.out.println(e.toString());
             System.out.println("The method threw an exception when the array was null, as intended");
         }
+
+        // Test Case - Main Case
+        int[] nums = { 1, 2, 3, 4, 5 };
+        System.out.println("Expected 55: " + Unit3Exercises.calculateSumOfSquares(nums));
+
+        // Test Case - Edge Case: Null array
+        // WIP
+
+        // Test Case - Main Case
+        int fib = 5;
+        System.out.println("Expected 8: " + Unit3Exercises.getNthFibonacci(fib));
+
+        // Test Case - Edge Case: Negative number
+        // WIP
+
+        // Test Case - Main Case
+        // int[] sortArray = { 5, 4, 6, 7, 1, 10 };
+        // System.out.println("Expected 8: " +
+        // Unit3Exercises.sortArrayDescending(sortArray));
+
+        // Test Case - Main Case
+        String phrase = "I love playing volleyball at the beach!";
+        System.out.println("Expected volleyball: " + Unit3Exercises.findLongestWord(phrase));
+
+        // Test Case - Main Case
+        String phrase2 = "The capital of Denmark is Copenhagen!";
+        System.out.println("Expected Copenhagen: " + Unit3Exercises.findLongestWord(phrase2));
+
+        // Test Case - Edge Case: Null string
+
+        // Test Case - Main Case
+        double value = 100;
+        double valuerate = 10;
+        int valueyrs = 2;
+        System.out.println("Expected 121: " + Unit3Exercises.calculateInterest(value, valuerate, valueyrs));
+
+        // WIP
+
     }
 }

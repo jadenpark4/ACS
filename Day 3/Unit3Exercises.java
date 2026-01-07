@@ -74,4 +74,56 @@ public class Unit3Exercises {
         }
         return sum;
     }
+
+    public static int calculateSumOfSquares(int[] numbers) {
+        int sum = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            sum += Math.pow(numbers[i], 2);
+        }
+        return sum;
+    }
+
+    public static int getNthFibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        }
+
+        int a = 0, b = 1, c;
+        for (int i = 1; i <= n; i++) {
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+
+    public static void sortArrayDescending(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[i]) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+    }
+
+    public static String findLongestWord(String sentence) {
+        String[] words = sentence.split(" ");
+        String longestWord = "";
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() >= longestWord.length()) {
+                longestWord = words[i];
+            }
+        }
+        return longestWord;
+    }
+
+    public static double calculateInterest(double principal, double rate, int years) {
+        for (int i = 0; i < years; i++) {
+            principal += principal * (rate / 100);
+        }
+        return principal;
+    }
 }
