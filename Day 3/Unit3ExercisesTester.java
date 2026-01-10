@@ -142,5 +142,17 @@ public class Unit3ExercisesTester {
 
         // WIP
 
+        // Test Case - Main Case
+        String checkpos = "67";
+        System.out.println("Expected 67: " + Unit3Exercises.parsePositiveInteger(checkpos));
+
+        // Test Case - Main Case
+
+        // Test Case - Main Case
+
+        // Test Case - Main Case
+
+        // Test Case - Main Case
+
     }
 }
