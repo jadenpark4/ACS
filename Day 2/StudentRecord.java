@@ -12,7 +12,6 @@ public class StudentRecord {
     // getters
     // to-do: implement getters
 
-    
     // to-do: implement getTestScore
     public String getName() {
         return name;
@@ -47,7 +46,7 @@ public class StudentRecord {
 
     public boolean equals(StudentRecord other) {
         if (this.name.equals(other.name)
-            && this.scores == other.scores) {
+                && this.scores == other.scores) {
             return true;
         } else {
             return false;
