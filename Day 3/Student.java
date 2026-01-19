@@ -1,4 +1,3 @@
-
 import java.util.Random;
 
 public class Student {
@@ -42,35 +41,35 @@ public class Student {
         this.name = newDisplayName;
     }
 
-    // public String resetPassword() {
-    // if (name == null || name.trim().isEmpty()) {
-    // throw new IllegalStateException("Student name missing.");
-    // }
-    // // Simple random password generator for demo purposes
-    // Random r = new Random();
-    // StringBuilder sb = new StringBuilder();
-    // for (int i = 0; i < 12; i++) {
-    // sb.append(CHARS.charAt(r.nextInt(CHARS.length())));
-    // }
-    // password = sb.toString();
-    // if (password.length() < 8) {
-    // throw new IllegalStateException("Password generator failed.");
-    // }
-    // return password;
-    // }
+    public String resetPassword() {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalStateException("Student name missing.");
+        }
+        // Simple random password generator for demo purposes
+        Random r = new Random();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 12; i++) {
+            sb.append(CHARS.charAt(r.nextInt(CHARS.length())));
+        }
+        password = sb.toString();
+        if (password.length() < 8) {
+            throw new IllegalStateException("Password generator failed.");
+        }
+        return password;
+    }
 
-    // public Assignment submitAssignment(String title, String description) {
-    // if (assignments == null) {
-    // throw new IllegalStateException("Assignment storage missing.");
-    // }
-    // if (assignmentCount >= assignments.length) {
-    // throw new IllegalStateException("Assignment limit reached.");
-    // }
-    // requireNotBlank(title, "title");
-    // requireNotBlank(description, "description");
-    // assignments[assignmentCount] = new Assignment(title, description);
-    // return assignments[assignmentCount++];
-    // }
+    public Assignment submitAssignment(String title, String description) {
+        if (assignments == null) {
+            throw new IllegalStateException("Assignment storage missing.");
+        }
+        if (assignmentCount >= assignments.length) {
+            throw new IllegalStateException("Assignment limit reached.");
+        }
+        requireNotBlank(title, "title");
+        requireNotBlank(description, "description");
+        assignments[assignmentCount] = new Assignment(title, description);
+        return assignments[assignmentCount++];
+    }
 
     private static boolean nameExists(String name) {
         for (int i = 0; i < NAME_COUNT; i++) {
