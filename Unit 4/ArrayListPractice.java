@@ -80,6 +80,16 @@ public class ArrayListPractice {
     // them by iterating from the beginning of the list.
     public static void removeStrings(ArrayList<String> list, char firstLetter) {
         // to-do: implement method
+        if (list == null) {
+            throw new IllegalArgumentException("List cannot be null");
+        }
+
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).charAt(0) == firstLetter) {
+                list.remove(i);
+                i--;
+            }
+        }
 
     }
 
@@ -88,6 +98,15 @@ public class ArrayListPractice {
     // them by iterating from the end of the list.
     public static void removeStrings2(ArrayList<String> list, char firstLetter) {
         // to-do: implement method
+        if (list == null) {
+            throw new IllegalArgumentException("List cannot be null");
+        }
+
+        for (int i = list.size() - 1; i >= 0; i--) {
+            if (list.get(i).charAt(0) == firstLetter) {
+                list.remove(i);
+            }
+        }
     }
 
     // counts and returns the number of times a the integer number is found in the
@@ -95,8 +114,16 @@ public class ArrayListPractice {
     // iterates through the list using a For-Each Loop.
     public static int numCount(ArrayList<Integer> list, int number) {
         // to-do: implement method
-
-        return 0;
+        if (list == null) {
+            throw new IllegalArgumentException("List cannot be null");
+        }
+        int count = 0;
+        for (int value : list) {
+            if (value == number) {
+                count++;
+            }
+        }
+        return count;
     }
 
 }
