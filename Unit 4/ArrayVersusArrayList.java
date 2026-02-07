@@ -26,6 +26,17 @@ public class ArrayVersusArrayList {
     // other elements to the right.
     public static void lastComesFirst(String[] arr) {
         // to-do: implement method
+        if (arr == null) {
+            throw new IllegalArgumentException("Array cannot be null");
+        }
+        if (arr.length == 0) {
+            return;
+        }
+        String last = arr[arr.length - 1];
+        for (int i = arr.length - 1; i > 0; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[0] = last;
 
     }
 
@@ -34,6 +45,14 @@ public class ArrayVersusArrayList {
     // other elements to the right.
     public static void lastComesFirst(ArrayList<String> arrList) {
         // to-do: implement method
+        if (arrList == null) {
+            throw new IllegalArgumentException("ArrayList cannot be null");
+        }
+        if (arrList.size() == 0) {
+            return;
+        }
+        String last = arrList.remove(arrList.size() - 1);
+        arrList.add(0, last);
 
     }
 
@@ -42,6 +61,17 @@ public class ArrayVersusArrayList {
     // other elements to the left.
     public static void firstComesLast(String[] arr) {
         // to-do: implement method
+        if (arr == null) {
+            throw new IllegalArgumentException("Array cannot be null");
+        }
+        if (arr.length == 0) {
+            return;
+        }
+        String first = arr[0];
+        for (int i = 0; i < arr.length - 1; i++) {
+            arr[i] = arr[i + 1];
+        }
+        arr[arr.length - 1] = first;
 
     }
 
@@ -50,6 +80,14 @@ public class ArrayVersusArrayList {
     // other elements to the left.
     public static void firstComesLast(ArrayList<String> arrList) {
         // to-do: implement method
+        if (arrList == null) {
+            throw new IllegalArgumentException("ArrayList cannot be null");
+        }
+        if (arrList.size() == 0) {
+            return;
+        }
+        String first = arrList.remove(0);
+        arrList.add(first);
 
     }
 
