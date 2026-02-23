@@ -8,5 +8,12 @@ public class ChocolateTester {
         r.addItem(new CocoaSticker(), 3);
         r.addItem(new TShirt(), 1);
         r.printReceipt();
+
+        CocoaRegister r2 = new CocoaRegister();
+        r2.addItem(new MilkBar(45), 2);
+        r2.addItem(new DarkBar(45), 1);
+        r2.addItem(new MatchaBar(45), 1);
+        r2.addItem(new CocoaSticker(), 3);
+        r2.printReceipt();
     }
 }

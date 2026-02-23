@@ -8,21 +8,42 @@ public class MemberTicket extends Ticket {
 
     public MemberTicket(Date eventDate, int ticketCount) {
         super(eventDate, ticketCount);
-        this.eventDate = super.eventDate;
-        this.ticketCount = super.ticketCount;
+        totalPrice = getTotalPrice();
     }
 
     public double getTotalPrice() {
-        double overall = getBasePrice() * ticketCount * getTax();
-        double final_overall = overall * (1 - MEMBER_DISCOUNT);
-        return final_overall;
+        double priceWithTax = getBasePrice() + (getBasePrice() * getTax());
+        double discountedPrice = priceWithTax * (1 - MEMBER_DISCOUNT);
+        return discountedPrice * ticketCount;
     }
 
+    @Override
     public void printTicketType() {
-        System.out.println("Ticket Type: Standard\n");
+        System.out.println("Ticket Type: Member");
     }
 
     public void printMemberBenefits() {
         System.out.println("Includes access to special discounts and complimentary refreshments.");
+    }
+
+    @Override
+    public void printPrice() {
+        BigDecimal decimalFormatter = new BigDecimal(totalPrice).setScale(2, RoundingMode.HALF_UP);
+        System.out.println("Ticket Price: $" + decimalFormatter.doubleValue());
+    }
+
+    @Override
+    public void printCancellationPolicy() {
+        super.printCancellationPolicy();
+        System.out.println("Can be canceled within 24 hours before the event. No cancellation fee applies.\n");
+    }
+
+    @Override
+    public void printTicketDetails() {
+        super.printTicketDetails();
+        printTicketType();
+        printPrice();
+        printMemberBenefits();
+        printCancellationPolicy();
     }
 }

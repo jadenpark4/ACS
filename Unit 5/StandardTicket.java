@@ -5,22 +5,22 @@ import java.util.Date;
 public class StandardTicket extends Ticket {
     public StandardTicket(Date eventDate, int ticketCount) {
         super(eventDate, ticketCount);
-        this.eventDate = super.eventDate;
-        this.ticketCount = super.ticketCount;
     }
 
     public double getTotalPrice() {
         double base_overall = getBasePrice() * ticketCount;
-        double final_overall = getTax() * base_overall;
+        double final_overall = (1 + getTax()) * base_overall;
         return final_overall;
     }
 
+    @Override
     public void printTicketType() {
-        System.out.println("Ticket Type: Standard\n");
+        System.out.println("Ticket Type: Standard");
     }
 
+    @Override
     public void printPrice() {
-        double totalPrice = getBasePrice() * getTax() * ticketCount;
+        double totalPrice = getBasePrice() * (1 + getTax()) * ticketCount;
         BigDecimal decimalFormatter = new BigDecimal(totalPrice).setScale(2, RoundingMode.HALF_UP); // rounds totalPrice
                                                                                                     // to 2 decimal
                                                                                                     // places, will be 1
@@ -32,12 +32,18 @@ public class StandardTicket extends Ticket {
         System.out.println("Ticket Price: $" + decimalFormatter.doubleValue()); // prints the price
     }
 
+    @Override
     public void printCancellationPolicy() {
-        System.out.println("Can be canceled within 24 hours before the event. Cancellation fee applies.");
+        super.printCancellationPolicy();
+        System.out.println("Can be canceled within 24 hours before the event. Cancellation fee applies.\n");
     }
 
+    @Override
     public void printTicketDetails() {
-
+        super.printTicketDetails();
+        printTicketType();
+        printPrice();
+        printCancellationPolicy();
     }
 
     // KNOW WHAT @OVERRIDE MEANS
